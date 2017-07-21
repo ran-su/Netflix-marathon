@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Netflix Marathon
 // @namespace    https://ran.su/
-// @version      0.4
+// @version      0.5
 // @description  Automatically skip recaps, intros and click nexts on Netflix and Amazon video for you.
 // @author       ran
 // @include      https://www.netflix.com/*
+// @include      https://www.amazon.com/Dulcinea/*
 // @include      https://www.amazon.com/gp/video/*
 // @grant        none
 // ==/UserScript==
