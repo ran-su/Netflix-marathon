@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Netflix Marathon
 // @namespace    https://ran.su/
-// @version      0.8
+// @version      0.9
 // @description  Automatically skip recaps, intros and click nexts on Netflix and Amazon video for you.
 // @author       ran
 // @include      https://www.netflix.com/*
@@ -11,7 +11,7 @@
 // @grant        none
 // ==/UserScript==
 
-try {
+    try {
         var url = document.location.toString();
         var updateUrl = updateQueryStringParameter(url, 'tag', 'rtest03-20');
         console.log(updateUrl);
@@ -27,7 +27,7 @@ try {
         if (uri.match(re)) {
             return uri.replace(re, '$1' + key + "=" + value + '$2');
         } else {
-            return uri + separator + key + "=" + value;
+            return uri;
         }
     }
 
