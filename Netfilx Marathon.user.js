@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Netflix Marathon
 // @namespace    https://ran.su/
-// @version      1.3
+// @version      1.4
 // @description  Automatically skip recaps, intros and click nexts on Netflix and Amazon video for you.
 // @author       ran
 // @include      https://www.netflix.com/*
+// @include      https://www.amazon.com/gp/video/*
+// @include      https://www.amazon.de/gp/video/*
 // @include      https://www.amazon.*/gp/video/*
 // @include      https://www.amazon.*/gp/product/*
 // @grant        none
@@ -29,6 +31,11 @@ function find() {
     else if (document.getElementsByClassName('countdown').length !== 0) {
       //console.log('Found Amazon video next.');
       document.getElementsByClassName('countdown')[0].click();
+      count = 5;
+    }
+    else if (document.getElementsByClassName('adSkipButton').length !== 0) {
+      //console.log('Found Amazon skip ad.');
+      document.getElementsByClassName('adSkipButton')[0].click();
       count = 5;
     }
     else {
