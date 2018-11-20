@@ -43,6 +43,11 @@ function find() {
       document.getElementsByClassName('adSkipButton')[0].click();
       count = 5;
     }
+    else if (document.getElementsByClassName('skipElement').length !== 0) {
+      //console.log('Found Amazon skip intro.');
+      document.getElementsByClassName('skipElement')[0].click();
+      count = 5;
+    }
     else {
       //console.log('404 keep looking.');
     }
