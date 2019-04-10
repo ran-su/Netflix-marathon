@@ -24,6 +24,7 @@ async function find() {
       //console.log('Found credits.');
       await sleep(200);
       document.getElementsByClassName('skip-credits')[0].firstElementChild.click();
+      document.querySelector('.button-nfplayerPlay').click();
       count = 80;
       //console.log('Found credits. +4s');
       //window.clearInterval(intervalId);
