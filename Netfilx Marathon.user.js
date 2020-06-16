@@ -9,6 +9,7 @@
 // @include      https://www.amazon.de/gp/video/*
 // @include      https://www.amazon.*/gp/video/*
 // @include      https://www.amazon.*/gp/product/*
+// @include      https://www.disneyplus.com//video/*
 // @grant        none
 // @license MIT
 // ==/UserScript==
@@ -56,6 +57,10 @@ async function find() {
     }
     else if (document.getElementsByClassName('PlayerControlsNeo__layout PlayerControlsNeo__layout--dimmed').length !== 0) {
       document.getElementsByClassName('interrupter-actions')[0].firstChild.click();
+      count = 5;
+    }
+    else if (document.getElementsByClassName('skip__button').length !== 0) {
+      document.getElementsByClassName('skip__button')[0].firstChild.click();
       count = 5;
     }
     else {
