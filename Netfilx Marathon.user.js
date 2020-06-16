@@ -2,7 +2,7 @@
 // @name         Netflix Marathon
 // @namespace    https://ran.su/
 // @version      2.0
-// @description  Automatically skip recaps, intros and click nexts on Netflix and Amazon video for you.
+// @description  Automatically skip recaps, intros and click nexts on Netflix, DisneyPlus and Amazon video for you.
 // @author       ran
 // @include      https://www.netflix.com/*
 // @include      https://www.amazon.com/gp/video/*
@@ -60,6 +60,7 @@ async function find() {
       count = 5;
     }
     else if (document.getElementsByClassName('skip__button').length !== 0) {
+      // skips recaps and intros on disneyplus
       document.getElementsByClassName('skip__button')[0].firstChild.click();
       count = 5;
     }
