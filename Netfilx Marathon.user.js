@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Netflix Marathon
 // @namespace    https://greasyfork.org/en/scripts/30029-netflix-marathon
-// @version      2.2
+// @version      2.3
 // @description  Automatically skip recaps, intros and click nexts on Netflix, DisneyPlus and Amazon video for you.
 // @author       ran
 // @include      https://www.netflix.com/*
@@ -15,6 +15,7 @@
 // @include      https://*.primevideo.com/detail/*
 // @include      https://*.primevideo.com/*
 // @include      https://www.disneyplus.com//video/*
+// @require      http://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
 // @grant        none
 // @license MIT
 // ==/UserScript==
@@ -30,6 +31,7 @@ async function find() {
       //console.log('Found credits.');
       await sleep(200);
       document.getElementsByClassName('skip-credits')[0].firstElementChild.click();
+      await sleep(200);
       document.querySelector('.button-nfplayerPlay').click();
       count = 80;
       //console.log('Found credits. +4s');
@@ -60,9 +62,19 @@ async function find() {
       document.getElementsByClassName('skipElement')[0].click();
       count = 5;
     }
+    else if ($("div div:contains('Skip')").length !== 0) {
+      // amazon trailers 
+      var badDivs = $("div div:contains('Skip')");
+      for (i = 0; i < badDivs.length; i++) {
+        if (badDivs[i].innerText == "Skip") {
+          badDivs[i].click();
+        }
+      }
+      count = 5;
+    }
     else if (document.getElementsByClassName('PlayerControlsNeo__layout PlayerControlsNeo__layout--dimmed').length !== 0) {
       document.getElementsByClassName('interrupter-actions')[0].firstChild.click();
-      count = 5;
+      count = 80;
     }
     else if (document.getElementsByClassName('skip__button').length !== 0) {
       // skips recaps and intros on disneyplus
