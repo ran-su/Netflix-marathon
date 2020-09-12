@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Netflix Marathon
 // @namespace    https://greasyfork.org/en/scripts/30029-netflix-marathon
-// @version      2.3
+// @version      2.4
 // @description  Automatically skip recaps, intros and click nexts on Netflix, DisneyPlus and Amazon video for you.
 // @author       ran
 // @include      https://www.netflix.com/*
@@ -62,16 +62,6 @@ async function find() {
       document.getElementsByClassName('skipElement')[0].click();
       count = 5;
     }
-    else if ($("div div:contains('Skip')").length !== 0) {
-      // amazon trailers 
-      var badDivs = $("div div:contains('Skip')");
-      for (i = 0; i < badDivs.length; i++) {
-        if (badDivs[i].innerText == "Skip") {
-          badDivs[i].click();
-        }
-      }
-      count = 5;
-    }
     else if (document.getElementsByClassName('PlayerControlsNeo__layout PlayerControlsNeo__layout--dimmed').length !== 0) {
       document.getElementsByClassName('interrupter-actions')[0].firstChild.click();
       count = 80;
@@ -81,8 +71,38 @@ async function find() {
       document.getElementsByClassName('skip__button')[0].firstChild.click();
       count = 5;
     }
-    else {
-      //console.log('404 keep looking.');
+    
+    if ($("div div:contains('Skip')").length !== 0) {
+      // amazon trailers 
+      var badDivs = $("div div:contains('Skip')");
+      for (i = 0; i < badDivs.length; i++) {
+        if (badDivs[i].innerText == "Skip") {
+          badDivs[i].click();
+          count = 5;
+        }
+      }
+    }
+    if ($("div div:contains('Skip Intro')").length !== 0) {
+      // amazon intro 
+      var badDivs = $("div div:contains('Skip Intro')");
+      //console.log(badDivs);
+      for (i = 0; i < badDivs.length; i++) {
+        if (badDivs[i].innerText == "Skip Intro") {
+          badDivs[i].click();
+          count = 5;
+        }
+      }
+    }
+    if ($("div div:contains('Skip Recap')").length !== 0) {
+      // amazon recap 
+      var badDivs = $("div div:contains('Skip Recap')");
+      //console.log(badDivs);
+      for (i = 0; i < badDivs.length; i++) {
+        if (badDivs[i].innerText == "Skip Recap") {
+          badDivs[i].click();
+          count = 5;
+        }
+      }
     }
   }
   else {
