@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Netflix Marathon
 // @namespace    https://greasyfork.org/en/scripts/30029-netflix-marathon
-// @version      2.4
+// @version      2.5
 // @description  Automatically skip recaps, intros and click nexts on Netflix, DisneyPlus and Amazon video for you.
 // @author       ran
 // @include      https://www.netflix.com/*
@@ -14,6 +14,7 @@
 // @include      https://primevideo.com/detail/*
 // @include      https://*.primevideo.com/detail/*
 // @include      https://*.primevideo.com/*
+// @include      https://www.peacocktv.com/watch/*
 // @include      https://www.disneyplus.com//video/*
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
 // @grant        none
@@ -60,6 +61,11 @@ async function find() {
     else if (document.getElementsByClassName('skipElement').length !== 0) {
       //console.log('Found Amazon skip intro.');
       document.getElementsByClassName('skipElement')[0].click();
+      count = 5;
+    }
+    else if (document.getElementsByClassName('playback-controls__skip--button').length !== 0) {
+      //console.log('Found peacock skip intro.');
+      document.getElementsByClassName('playback-controls__skip--button')[0].click();
       count = 5;
     }
     else if (document.getElementsByClassName('PlayerControlsNeo__layout PlayerControlsNeo__layout--dimmed').length !== 0) {
