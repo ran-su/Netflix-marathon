@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Netflix Marathon
 // @namespace    https://greasyfork.org/en/scripts/30029-netflix-marathon
-// @version      2.5
+// @version      2.6
 // @description  Automatically skip recaps, intros and click nexts on Netflix, DisneyPlus and Amazon video for you.
 // @author       ran
 // @include      https://www.netflix.com/*
@@ -16,6 +16,7 @@
 // @include      https://*.primevideo.com/*
 // @include      https://www.peacocktv.com/watch/*
 // @include      https://www.disneyplus.com//video/*
+// @include      https://www.disneyplus.com/*/video/*
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
 // @grant        none
 // @license MIT
