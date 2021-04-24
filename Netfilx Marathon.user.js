@@ -78,6 +78,12 @@ async function find() {
       document.getElementsByClassName('skip__button')[0].firstChild.click();
       count = 5;
     }
+    else if (document.getElementsByClassName('video_view--mini').length !== 0) {
+      // auto plays next episode on disneyplus
+      //console.log('Found autoplay.');
+      document.querySelector('*[data-testid="up-next-play-button"]').click();
+      count = 5;
+    }
     else if (document.getElementsByClassName('atvwebplayersdk-skipelement-button').length !== 0) {
       //console.log('Found Amazon imdb skip intro.');
       document.getElementsByClassName('atvwebplayersdk-skipelement-button')[0].click();
